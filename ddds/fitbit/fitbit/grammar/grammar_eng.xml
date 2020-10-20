@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+
+  <action name="top">
+    <one-of>
+      <item>main menu</item>
+      <item>top</item>
+      <item>beginning</item>
+      <item>cancel</item>
+      <item>forget it</item>
+      <item>never mind</item>
+      <item>abort</item>
+    </one-of>
+  </action>
+
+  <action name="up">
+    <one-of>
+      <item>up</item>
+      <item>back</item>
+      <item>go back</item>
+    </one-of>
+  </action>
+
+  
+  <question type="wh_question" predicate="recommendations" speaker="user">
+    <one-of>
+	  <item>recommendation</item>
+	  <item>i want to know the recommended amount of <slot predicate="area_to_recommend"/></item>
+	  <item>can you tell me what is the recommended number of <slot predicate="area_to_recommend"/> that i should take </item>
+    </one-of>
+  </question>
+
+  <question type="wh_question" predicate="area_to_recommend" speaker="system">which area daily steps or sleep per night</question>
+
+  <answer speaker="system" predicate="recommendations">The recommendation is <slot predicate="recommendations"/></answer>
+
+  <individual name="average">
+     <one-of>
+       <item>daily average</item>
+       <item>average</item>
+     </one-of>
+   </individual>
+   <individual name="total">
+     <one-of>
+       <item>total</item>
+       <item>overall</item>
+     </one-of>
+   </individual>
+  
+  
+  <individual name="steps_rec">
+     <one-of>
+       <item>daily steps</item>
+       <item>steps</item>
+     </one-of>
+   </individual>
+   
+   <individual name="sleep_rec">
+     <one-of>
+       <item>sleep</item>
+       <item>sleep per night</item>
+     </one-of>
+   </individual>
+
+</grammar>

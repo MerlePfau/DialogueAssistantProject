@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="FitbitOntology">
+  <sort name="area"/>
+  <sort name="count" dynamic="true"/>
+
+  <predicate name="steps_amount" sort="string"/>
+  <predicate name="day_to_search" sort="string"/>
+  <predicate name="area_to_recommend" sort="area"/>
+  <predicate name="count_to_use" sort="count"/>
+  <predicate name="recommendations" sort="string"/>
+  
+
+  <individual name="steps_rec" sort="area"/>
+  <individual name="sleep_rec" sort="area"/>
+  <individual name="average" sort="count"/>
+  <individual name="total" sort="count"/>  
+  
+</ontology>

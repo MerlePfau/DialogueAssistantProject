@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service_interface>
+
+  <query name="steps_amount">
+    <parameters>
+      <parameter predicate="day_to_search" format="grammar_entry"/>
+      <parameter predicate="count_to_use" format="grammar_entry" optional="true"/>
+    </parameters>
+    <target>
+      <http endpoint="http://http-service/steps_amount"/>
+    </target>
+  </query>
+
+  <query name="recommendations">
+    <parameters>
+      <parameter predicate="area_to_recommend" format="grammar_entry"/>
+    </parameters>
+    <target>
+      <http endpoint="http://http-service/recommendations"/>
+    </target>
+  </query>
+
+</service_interface>
