@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="FitbittdmDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" question_type="wh_question" predicate="activity_amount">
+    <plan>
+	  <findout type="wh_question" predicate="area_to_recommend"/>
+      <findout type="wh_question" predicate="day_to_search"/> 
+	  <bind type="wh_question" predicate="count_to_use"/> 
+      <invoke_service_query predicate="activity_amount" type="wh_question"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" question_type="wh_question" predicate="recommendations">
+    <plan>
+      <findout type="wh_question" predicate="area_to_recommend"/>
+      <invoke_service_query predicate="recommendations" type="wh_question"/>
+    </plan>
+  </goal>
+  
+  <goal type="resolve" question_type="wh_question" predicate="goal_amount">
+    <plan>
+      <findout type="wh_question" predicate="area_to_recommend"/> 
+      <invoke_service_query predicate="goal_amount" type="wh_question"/>
+    </plan>
+  </goal>
+  
+  <goal type="resolve" question_type="wh_question" predicate="diff_goal">
+    <plan>
+      <findout type="wh_question" predicate="area_to_recommend"/> 
+	  <bind type="wh_question" predicate="day_to_search"/> 
+      <invoke_service_query predicate="diff_goal" type="wh_question"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" question_type="wh_question" predicate="max_value">
+    <plan>
+      <findout type="wh_question" predicate="area_to_recommend"/> 
+      <invoke_service_query predicate="max_value" type="wh_question"/>
+    </plan>
+  </goal>
+  
+  <goal type="resolve" question_type="wh_question" predicate="comparison">
+    <plan>
+	  <findout type="wh_question" predicate="area_to_recommend"/> 
+      <findout type="wh_question" predicate="date_to_compare"/> 
+	  <bind type="wh_question" predicate="count_to_use"/> 
+      <invoke_service_query predicate="comparison" type="wh_question"/>
+    </plan>
+  </goal>
+  
+  <goal type="resolve" question_type="wh_question" predicate="way_to_improve">
+    <plan>
+	  <findout type="wh_question" predicate="area_to_recommend"/> 
+	  <invoke_service_query predicate="way_to_improve" type="wh_question"/>
+    </plan>
+  </goal>
+  
+</domain>

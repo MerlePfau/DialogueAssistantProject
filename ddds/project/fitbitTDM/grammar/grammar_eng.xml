@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+
+  <action name="top">
+    <one-of>
+      <item>main menu</item>
+      <item>top</item>
+      <item>beginning</item>
+      <item>cancel</item>
+      <item>forget it</item>
+      <item>never mind</item>
+      <item>abort</item>
+    </one-of>
+  </action>
+
+  <action name="up">
+    <one-of>
+      <item>up</item>
+      <item>back</item>
+      <item>go back</item>
+    </one-of>
+  </action>
+
+
+  <question type="wh_question" speaker="all" predicate="recommendations">recommendations</question>
+  <question type="wh_question" speaker="all" predicate="activity_amount">activities</question>
+  <question type="wh_question" speaker="all" predicate="goal_amount">goal</question>
+  <question type="wh_question" speaker="all" predicate="diff_goal">difference to goal</question>
+  <question type="wh_question" speaker="all" predicate="max_value">maximum amount</question>
+  <question type="wh_question" speaker="all" predicate="comparison">get comparison</question>
+  <question type="wh_question" speaker="all" predicate="date_to_compare">what date do you want to compare to</question>
+  <question type="wh_question" speaker="all" predicate="way_to_improve">way to improve</question>
+  <question type="wh_question" predicate="area_to_recommend" speaker="system">which area</question>
+  <question type="wh_question" predicate="count_to_use" speaker="system">on average or in total</question>
+  <question type="wh_question" predicate="day_to_search" speaker="system">when</question>
+
+  <answer speaker="user">
+	<one-of>
+	  <item><slot predicate="area_to_recommend"/></item>
+	  <item><slot predicate="area_to_recommend"/> <slot predicate="day_to_search"/></item>
+	  <item><slot predicate="area_to_recommend"/> <slot predicate="day_to_search"/> <slot predicate="count_to_use"/></item>
+	  <item><slot predicate="area_to_recommend"/> on <slot predicate="day_to_search"/></item>
+	  <item><slot predicate="area_to_recommend"/> on <slot predicate="day_to_search"/> <slot predicate="count_to_use"/></item>
+	  <item><slot predicate="day_to_search"/></item>
+	  <item><slot predicate="day_to_search"/> <slot predicate="count_to_use"/></item>
+	</one-of>
+  </answer> 
+  <question type="wh_question" speaker="user" predicate="activity_amount">
+    <one-of>
+	  <item>How much did I do</item>
+	  <item>How many did I have <slot predicate="day_to_search"/></item>
+      <item>can you tell me how many <slot predicate="area_to_recommend"/> I did <slot predicate="day_to_search"/></item>
+      <item>how many <slot predicate="area_to_recommend"/> do I have</item>
+	  <item>how many <slot predicate="area_to_recommend"/> <slot predicate="day_to_search"/></item>
+	  <item>how many <slot predicate="area_to_recommend"/> did I do <slot predicate="day_to_search"/></item>
+	  <item>how many <slot predicate="area_to_recommend"/> did I do <slot predicate="count_to_use"/> <slot predicate="day_to_search"/></item>
+	  <item>how many <slot predicate="area_to_recommend"/> did I do <slot predicate="day_to_search"/> <slot predicate="count_to_use"/></item>
+	  <item>how many <slot predicate="area_to_recommend"/> did I have <slot predicate="day_to_search"/> <slot predicate="count_to_use"/></item>
+	  <item>how many <slot predicate="area_to_recommend"/> did I have <slot predicate="count_to_use"/> <slot predicate="day_to_search"/></item>
+	  <item>how many <slot predicate="area_to_recommend"/> did I have <slot predicate="day_to_search"/></item>
+	  <item>can you tell me how much <slot predicate="area_to_recommend"/> I did <slot predicate="day_to_search"/></item>
+      <item>how much <slot predicate="area_to_recommend"/> did I walk</item>
+	  <item>how much <slot predicate="area_to_recommend"/><slot predicate="day_to_search"/></item>
+	  <item>how much <slot predicate="area_to_recommend"/> did I do <slot predicate="day_to_search"/></item>
+	  <item>how much <slot predicate="area_to_recommend"/> did I do <slot predicate="count_to_use"/> <slot predicate="day_to_search"/></item>
+	  <item>how much <slot predicate="area_to_recommend"/> did I do <slot predicate="day_to_search"/> <slot predicate="count_to_use"/></item>
+	  <item>how much <slot predicate="area_to_recommend"/> did I have <slot predicate="day_to_search"/> <slot predicate="count_to_use"/></item>
+	  <item>how much <slot predicate="area_to_recommend"/> did I have <slot predicate="day_to_search"/></item>
+	  <item>how much <slot predicate="area_to_recommend"/> did I have <slot predicate="count_to_use"/> <slot predicate="day_to_search"/></item>
+    </one-of>
+  </question>
+  
+  <question type="wh_question" predicate="recommendations" speaker="user">
+    <one-of>
+	  <item>recommendation</item>
+	  <item>what is the recommended amount</item>
+	  <item>what is the recommended amount of <slot predicate="area_to_recommend"/></item>
+	  <item>i want to know the recommended amount of <slot predicate="area_to_recommend"/></item>
+	  <item>can you tell me what is the recommended number of <slot predicate="area_to_recommend"/> that i should take </item>
+    </one-of>
+  </question>
+  
+  <question type="wh_question" predicate="goal_amount" speaker="user">
+    <one-of>
+	  <item>What is my goal</item>
+	  <item>What is my goal for <slot predicate="area_to_recommend"/></item>
+	  <item>What is my settings</item>
+	  <item>What is my settings for <slot predicate="area_to_recommend"/></item>
+	  <item>what number am I trying to reach for <slot predicate="area_to_recommend"/></item>
+    </one-of>
+  </question>
+  
+  <question type="wh_question" predicate="diff_goal" speaker="user">
+    <one-of>
+	  <item>how many more <slot predicate="area_to_recommend"/> do i have to do to reach my goal</item>
+	  <item>how much more <slot predicate="area_to_recommend"/> do i need</item>
+	  <item>how much more do i need to reach my goal</item>
+	  <item>did I reach my goal for <slot predicate="area_to_recommend"/> <slot predicate="day_to_search"/></item>
+	  <item>did I reach my goal <slot predicate="day_to_search"/></item>  
+	  <item>did I reach my goal on <slot predicate="day_to_search"/></item>  
+    </one-of>
+  </question>
+ 
+   <question type="wh_question" predicate="max_value" speaker="user">
+    <one-of>
+	  <item>what was the maximum of <slot predicate="area_to_recommend"/> I've ever done</item>
+	  <item>what is my maximum</item>
+	  <item>what are the most I've ever done</item>
+	  <item>what are the most <slot predicate="area_to_recommend"/> I've ever done</item>
+	  <item>what is the biggest <slot predicate="area_to_recommend"/> i've walked</item> 
+    </one-of>
+  </question>
+  
+  <question type="wh_question" predicate="comparison" speaker="user">
+    <one-of>
+	  <item>Is that more or less than <slot predicate="date_to_compare"/></item>
+	  <item>Is that less than <slot predicate="date_to_compare"/></item>
+	  <item>Is that more than <slot predicate="date_to_compare"/></item>
+	  <item>compare that to <slot predicate="date_to_compare"/></item>
+	  <item>How does that compare to <slot predicate="date_to_compare"/></item>
+    </one-of>
+  </question>
+  
+  <question type="wh_question" predicate="way_to_improve" speaker="user">
+    <one-of>
+      <item>What would you suggest to improve in that area</item>
+      <item>how do I improve in <slot predicate="area_to_recommend"/></item>
+      <item>how do I improve that</item>
+      <item>how can I improve in <slot predicate="area_to_recommend"/></item>
+      <item>suggest something to get more <slot predicate="area_to_recommend"/></item>
+	  <item>suggest something to get less <slot predicate="area_to_recommend"/></item>
+    </one-of>
+  </question>
+
+
+
+  <answer speaker="system" predicate="recommendations">The recommendation is <slot predicate="recommendations"/></answer>
+  <answer speaker="system" predicate="activity_amount">You <slot predicate="activity_amount"/></answer>
+  <answer speaker="system" predicate="goal_amount">Your goal is <slot predicate="goal_amount"/></answer>
+  <answer speaker="system" predicate="diff_goal"><slot predicate="diff_goal"/> your goal</answer>
+  <answer speaker="system" predicate="max_value">Your maximum was <slot predicate="max_value"/></answer>
+  <answer speaker="system" predicate="comparison">That is <slot predicate="comparison"/></answer>
+  <answer speaker="system" predicate="way_to_improve">You could try <slot predicate="way_to_improve"/></answer>
+  
+  <individual name="average">
+     <one-of>
+       <item>daily average</item>
+       <item>average</item>
+       <item>on average</item>
+     </one-of>
+   </individual>
+   
+   <individual name="total">
+     <one-of>
+       <item>total</item>
+	   <item>in total</item>
+       <item>overall</item>
+     </one-of>
+   </individual>
+  
+  
+  <individual name="steps">
+     <one-of>
+       <item>daily steps</item>
+       <item>steps</item>
+       <item>steps per day</item>
+     </one-of>
+   </individual>
+   
+   <individual name="sleep">
+     <one-of>
+       <item>sleep</item>
+       <item>sleep per night</item>
+       <item>minutes of sleep per night</item>
+       <item>minutes of sleep</item>
+     </one-of>
+   </individual>
+   
+   <individual name="activeMinutes">
+     <one-of>
+       <item>active minutes</item>
+       <item>active time</item>
+       <item>active time in minutes</item>
+       <item>time active</item>
+     </one-of>
+   </individual>
+   <individual name="caloriesOut">
+     <one-of>
+	   <item>calories</item>
+       <item>burned calories</item>
+       <item>calories out</item>
+     </one-of>
+   </individual>
+   <individual name="distance">
+     <one-of>
+       <item>kilometers</item>
+       <item>distance</item>
+       <item>distance in kilometers</item>
+     </one-of>
+   </individual>
+   <individual name="sedentaryMinutes">
+     <one-of>
+       <item>sedentary minutes</item>
+	   <item>sitting minutes</item>
+	   <item>minutes sitting</item>
+       <item>time spent sitting</item>
+     </one-of>
+   </individual>
+
+   <individual name="today">
+     <one-of>
+       <item>today</item>
+       <item>this day</item>
+       <item>so far this day</item>
+       <item>so far</item>
+       <item>so far today</item>
+     </one-of>
+   </individual>
+   <individual name="yesterday">
+     <one-of>
+       <item>yesterday</item>
+       <item>the day before today</item>
+     </one-of>
+   </individual>
+   <individual name="day_before_yesterday">
+     <one-of>
+       <item>the day before yesterday</item>
+       <item>2 days ago</item>
+     </one-of>
+   </individual>
+   <individual name="last_year">
+     <one-of>
+       <item>last year</item>
+       <item>the last 365 days</item>
+     </one-of>
+   </individual>
+   <individual name="last_month">
+     <one-of>
+       <item>last month</item>
+       <item>the last 30 days</item>
+     </one-of>
+   </individual>
+   <individual name="last_week">
+     <one-of>
+       <item>last week</item>
+       <item>the last 7 days</item>
+     </one-of>
+   </individual>
+   <individual name="day_before">
+     <one-of>
+       <item>the day before</item>
+       <item>the day before that</item>
+     </one-of>
+   </individual>
+   <individual name="week_before">
+     <one-of>
+       <item>the week before</item>
+       <item>the week before that</item>
+     </one-of>
+   </individual>
+   <individual name="year_before">
+     <one-of>
+       <item>the year before</item>
+       <item>the year before that</item>
+     </one-of>
+   </individual>
+   <individual name="month_before">
+     <one-of>
+       <item>the month before</item>
+       <item>the month before that</item>
+     </one-of>
+   </individual>
+   
+
+
+   
+</grammar>
